@@ -7,8 +7,8 @@
     <ProjectGuid>{2736301F-0646-4878-AB68-0EDD5C56DF11}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ExpressionEngine</RootNamespace>
-    <AssemblyName>ExpressionEngine</AssemblyName>
+    <RootNamespace>ExpressionEvaluator</RootNamespace>
+    <AssemblyName>ExpressionEvaluator</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExpressionEngine.cs" />
+    <Compile Include="ExpressionEvaluator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

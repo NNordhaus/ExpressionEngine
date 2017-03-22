@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExpressionEngine
+namespace ExpressionEvaluator
 {
-    public class ExpressionEvaluator
+    public class BooleanEvaluator
     {
         public List<string> Tags = new List<string>();
 

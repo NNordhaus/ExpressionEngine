@@ -1,4 +1,4 @@
-# ExpressionEngine
+# ExpressionEvaluator
 Small tool to evaluate boolean expressions.  Used TDD to hammer it out.
 
 Had a problem which I described in a Stack exchange question here: http://softwareengineering.stackexchange.com/questions/344553/need-to-match-database-tags-using-a-boolean-expression
@@ -7,4 +7,4 @@ I decided to make a simple boolean expression tool. So far it only handles && an
 
 # How to use:
 
-Instantiate the engine, populate the Tags list with a collection of strings, the existence of a string in this list means its usage in an expression will evaluate to true, else, false.
+Instantiate the evaluator, populate the Tags list with a collection of strings, the existence of a string in this list means its usage in an expression will evaluate to true, else, false. Then pass your expression to the Evaluate function.

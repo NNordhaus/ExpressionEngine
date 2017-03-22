@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using ExpressionEngine;
+using ExpressionEvaluator;
 
-namespace ExpressionEngineTests
+namespace ExpressionEvaluatorTests
 {
     [TestClass]
     public class Evaluate_Should
@@ -12,7 +12,7 @@ namespace ExpressionEngineTests
         public void Return_False_When_No_Input_Given()
         {
             // Arrange
-            var sut = new ExpressionEvaluator();
+            var sut = new BooleanEvaluator();
 
             // Act
             var result = sut.Evaluate("");
@@ -25,7 +25,7 @@ namespace ExpressionEngineTests
         public void Treat_Whitespace_as_empty()
         {
             // Arrange
-            var sut = new ExpressionEvaluator();
+            var sut = new BooleanEvaluator();
 
             // Act
             var result = sut.Evaluate(" ");
@@ -38,7 +38,7 @@ namespace ExpressionEngineTests
         public void Return_True_When_Matching_Tag_Exists()
         {
             // Arrange
-            var sut = new ExpressionEvaluator();
+            var sut = new BooleanEvaluator();
             sut.Tags.Add("Horse");
 
             // Act
@@ -52,7 +52,7 @@ namespace ExpressionEngineTests
         public void Return_False_When_Matching_Tag_Does_Not_Exist()
         {
             // Arrange
-            var sut = new ExpressionEvaluator();
+            var sut = new BooleanEvaluator();
             sut.Tags.Add("Cow");
 
             // Act
@@ -66,7 +66,7 @@ namespace ExpressionEngineTests
         public void Return_False_When_Left_Side_of_AND_operator_Does_Not_Exist()
         {
             // Arrange
-            var sut = new ExpressionEvaluator();
+            var sut = new BooleanEvaluator();
             sut.Tags.Add("Cow");
 
             // Act
@@ -80,7 +80,7 @@ namespace ExpressionEngineTests
         public void Return_False_When_Right_Side_of_AND_operator_Does_Not_Exist()
         {
             // Arrange
-            var sut = new ExpressionEvaluator();
+            var sut = new BooleanEvaluator();
             sut.Tags.Add("Horse");
 
             // Act
@@ -94,7 +94,7 @@ namespace ExpressionEngineTests
         public void Return_True_When_Both_Sides_of_AND_operator_Exist()
         {
             // Arrange
-            var sut = new ExpressionEvaluator();
+            var sut = new BooleanEvaluator();
             sut.Tags.Add("Cow");
             sut.Tags.Add("Horse");
 
@@ -109,7 +109,7 @@ namespace ExpressionEngineTests
         public void Return_False_When_Neither_Side_of_OR_operator_Exist()
         {
             // Arrange
-            var sut = new ExpressionEvaluator();
+            var sut = new BooleanEvaluator();
 
             // Act
             var result = sut.Evaluate("Horse || Cow");
@@ -122,7 +122,7 @@ namespace ExpressionEngineTests
         public void Return_True_When_Left_Side_of_OR_operator_Exists()
         {
             // Arrange
-            var sut = new ExpressionEvaluator();
+            var sut = new BooleanEvaluator();
             sut.Tags.Add("Horse");
 
             // Act
@@ -136,7 +136,7 @@ namespace ExpressionEngineTests
         public void Return_True_When_TWO_AND_operators_exist_in_series()
         {
             // Arrange
-            var sut = new ExpressionEvaluator();
+            var sut = new BooleanEvaluator();
             sut.Tags.Add("Horse");
             sut.Tags.Add("Cow");
             sut.Tags.Add("Goat");
@@ -152,7 +152,7 @@ namespace ExpressionEngineTests
         public void Return_False_When_third_val_in_series_of_AND_is_only_false()
         {
             // Arrange
-            var sut = new ExpressionEvaluator();
+            var sut = new BooleanEvaluator();
             sut.Tags.Add("Horse");
             sut.Tags.Add("Cow");
 
@@ -167,7 +167,7 @@ namespace ExpressionEngineTests
         public void Return_True_When_Third_val_in_series_of_OR_is_the_only_true()
         {
             // Arrange
-            var sut = new ExpressionEvaluator();
+            var sut = new BooleanEvaluator();
             sut.Tags.Add("Goat");
 
             // Act
@@ -181,7 +181,7 @@ namespace ExpressionEngineTests
         public void Return_true_when_5_tags_used()
         {
             // Arrange
-            var sut = new ExpressionEvaluator();
+            var sut = new BooleanEvaluator();
             //sut.Tags.Add("For-Sale");
             sut.Tags.Add("Florida");
             sut.Tags.Add("Motorcycle");
@@ -192,6 +192,5 @@ namespace ExpressionEngineTests
             // Assert
             Assert.AreEqual(result, false);
         }
-
     }
 }
